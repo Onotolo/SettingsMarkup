@@ -19,9 +19,6 @@ allprojects {
         google()
         jcenter()
 
-        def githubProperties = new Properties()
-        githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/onotolo/androidsettings/")

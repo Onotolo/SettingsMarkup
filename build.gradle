@@ -19,15 +19,12 @@ allprojects {
         google()
         jcenter()
 
-        def githubProperties = new Properties()
-        githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/onotolo/androidsettings/")
             credentials {
-                username = githubProperties["gpr.usr"]
-                password = githubProperties["gpr.key"]
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
         }
     }

@@ -63,6 +63,7 @@ open class SettingsView @JvmOverloads constructor(
             setTextAppearance(context, headerTextAppearance)
             text = header
         }
+        root.addView(section.root)
         section.root.addView(headerView)
         return section
     }
